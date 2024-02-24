@@ -58,6 +58,7 @@ const BarcodeScanner = () => {
           type: "LiveStream",
           target: webcamRef.current.video,
         },
+        frequency: 400,
         decoder: {
           readers: ["code_128_reader"], // Specify the type of barcode you want to scan, for example: EAN-13
           singleScan: true,
