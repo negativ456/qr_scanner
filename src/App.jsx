@@ -43,9 +43,8 @@ const BarcodeScanner = () => {
             setIsSuccess(false);
           }
         }
-        if (scannedCode !== code) {
-            navigator.vibrate(200);
-        }
+
+        navigator.vibrate(200);
       }
     },
     [isScanned, inputVal, isFixed]
@@ -63,7 +62,7 @@ const BarcodeScanner = () => {
              deviceId: deviceId
          },
         },
-        frequency: 400,
+        frequency: 200,
         decoder: {
           readers: ["code_128_reader"], // Specify the type of barcode you want to scan, for example: EAN-13
           singleScan: false,
