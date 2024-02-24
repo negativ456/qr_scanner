@@ -43,8 +43,9 @@ const BarcodeScanner = () => {
             setIsSuccess(false);
           }
         }
-
-        navigator.vibrate(200);
+        if (scannedCode !== code) {
+            navigator.vibrate(200);
+        }
       }
     },
     [isScanned, inputVal, isFixed]
