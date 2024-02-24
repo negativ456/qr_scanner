@@ -56,22 +56,22 @@ const BarcodeScanner = () => {
         inputStream: {
           name: "Live",
           type: "LiveStream",
-          target:  webcamRef.current,
-         constraints: {
-             facingMode: "environment",
-             deviceId: deviceId
-         },
+          target: webcamRef.current,
+          constraints: {
+            facingMode: "environment",
+            deviceId: deviceId,
+          },
         },
         frequency: 200,
         decoder: {
           readers: ["code_128_reader"], // Specify the type of barcode you want to scan, for example: EAN-13
           singleScan: false,
           debug: {
-              drawBoundingBox: false,
-              showFrequency: false,
-              drawScanline: false,
-              showPattern: false
-          }
+            drawBoundingBox: false,
+            showFrequency: false,
+            drawScanline: false,
+            showPattern: false,
+          },
         },
         numOfWorkers: 1,
         debug: false,
@@ -128,19 +128,20 @@ const BarcodeScanner = () => {
           </option>
         ))}
       </select>
-      <div ref={webcamRef} className={cls.video}>
-      </div>
+      <div ref={webcamRef} className={cls.video}></div>
 
       <div className={cls.block}>
         <p className={cls.text}>
-          Сканированный код: <br /> {scannedCode}
+          Штрих-код: <br /> {scannedCode}
         </p>
-        <button className={cls.copy} onClick={onCopy}>
-          Copy
-        </button>
-        <button className={cls.copy} onClick={onTransfer}>
-          Transfer
-        </button>
+        <div className={cls.buttons}>
+          <button className={cls.copy} onClick={onCopy}>
+            Copy
+          </button>
+          <button className={cls.copy} onClick={onTransfer}>
+            Transfer
+          </button>
+        </div>
       </div>
       <div className={cls.input}>
         <input

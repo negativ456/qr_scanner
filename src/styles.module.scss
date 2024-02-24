@@ -78,6 +78,9 @@
     position: fixed;
     z-index: -1000;
   }
+}
 
-
+.buttons {
+  display: flex;
+  gap: 5px;
 }
