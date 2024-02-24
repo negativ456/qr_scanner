@@ -30,7 +30,7 @@ body {
   place-items: center;
   align-items: flex-start;
   min-width: 320px;
-  min-height: 100vh;
+  height: 100dvh;
 }
 
 h1 {
