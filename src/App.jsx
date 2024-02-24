@@ -47,7 +47,7 @@ const BarcodeScanner = () => {
         navigator.vibrate(200);
       }
     },
-    [isScanned]
+    [isScanned, inputVal, isFixed]
   );
 
   useEffect(() => {
