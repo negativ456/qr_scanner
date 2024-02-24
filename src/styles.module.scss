@@ -68,3 +68,16 @@
   font-size: 17px;
   font-weight: 500;
 }
+
+.video {
+  video {
+    margin-top: 10px;
+    width: 100%;
+  }
+  canvas {
+    position: absolute;
+    z-index: -1000;
+  }
+
+
+}

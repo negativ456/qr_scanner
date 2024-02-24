@@ -56,12 +56,24 @@ const BarcodeScanner = () => {
         inputStream: {
           name: "Live",
           type: "LiveStream",
-          target: webcamRef.current.video,
+          target:  webcamRef.current,
+         constraints: {
+             facingMode: "environment",
+             deviceId: deviceId
+         },
         },
         decoder: {
           readers: ["code_128_reader"], // Specify the type of barcode you want to scan, for example: EAN-13
-          singleScan: true,
+          singleScan: false,
+          debug: {
+              drawBoundingBox: false,
+              showFrequency: false,
+              drawScanline: false,
+              showPattern: false
+          }
         },
+        numOfWorkers: 1,
+        debug: false,
         locate: true,
       },
       (err) => {
@@ -115,20 +127,7 @@ const BarcodeScanner = () => {
           </option>
         ))}
       </select>
-      <div>
-        {devices.map((item) => (
-          <span key={item.deviceId}>Камеры: {item.label}</span>
-        ))}
-        <Webcam
-          audio={false}
-          ref={webcamRef}
-          screenshotFormat="image/jpeg"
-          autoFocus={true}
-          videoConstraints={{ deviceId }}
-          width="100%"
-          height="auto"
-          controls={true}
-        />
+      <div ref={webcamRef} className={cls.video}>
       </div>
 
       <div className={cls.block}>
